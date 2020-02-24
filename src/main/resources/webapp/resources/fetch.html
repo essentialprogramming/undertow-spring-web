@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Skills </title>
+</head>
+
+<body>
+
+<h1>Unordered list of skills using fetch : </h1>
+<ul id="list"></ul>
+<div id="skillsList"></div>
+
+<script>
+
+                  var ul = document.getElementById("list");
+                  document.getElementById("skillsList").appendChild(ul);
+
+                  var items;
+                  fetch('/skillsList')
+                         .then(res => res.json())
+                         .then(json => {
+                                items = json
+                                items.forEach(function(skill){
+                                    var li = document.createElement('li')
+                                    ul.appendChild(li)
+                                    li.innerHTML += skill.name
+                            })
+                         })
+                         .catch(function(error) {
+                                console.log(error);
+                         });
+
+            </script>
+
+</body>
+</html>
+

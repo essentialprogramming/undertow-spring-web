@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Skills </title>
+</head>
+
+<body>
+
+<h1>Skills list using ajax call: </h1>
+<ul id="list"></ul>
+<div id="skillsList"></div>
+
+<script>
+
+                 var ul = document.getElementById("list");
+                 document.getElementById("skillsList").appendChild(ul);
+
+                 var xhr = new XMLHttpRequest();
+                 xhr.open('GET', '/skillsList');
+                 xhr.onreadystatechange = function() {
+                     if (xhr.readyState === 4){
+                            var items = JSON.parse(xhr.responseText);
+
+                            items.forEach(function(skill){
+                                    var li = document.createElement('li')
+                                    ul.appendChild(li)
+                                    li.innerHTML += skill.name
+                            })
+                     }
+
+                 };
+                 xhr.send();
+
+            </script>
+
+</body>
+</html>

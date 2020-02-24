@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Skills </title>
+</head>
+
+<body>
+
+<h1>Skills list using promise : </h1>
+<ul id="list"></ul>
+<div id="skillsList"></div>
+
+<script>
+
+                  var ul = document.getElementById("list");
+                  document.getElementById("skillsList").appendChild(ul);
+
+                  var getTextPromise = new Promise((resolve, reject) => {
+                        const xhr = new XMLHttpRequest();
+                              xhr.open('GET', '/skillsList');
+                              xhr.onload = (response) => resolve(response.currentTarget.responseText);
+                              xhr.onerror = () => reject(xhr.statusText);
+                              xhr.send();
+                  });
+
+                  getTextPromise
+                        .then(responseText => {
+                              var items = JSON.parse(responseText);
+
+                              items.forEach(function(skill){
+                                 var li = document.createElement('li')
+                                 ul.appendChild(li)
+                                 li.innerHTML += skill.name
+                              })
+                        })
+                        .catch(function(error) {
+                              console.log(error);
+                        });
+
+            </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Skills </title>
+    <style>
+        p {
+        font-size:17px
+        }
+    </style>
+</head>
+
+<body>
+
+<h1> Array loops using functional programming </h1>
+
+<p><b> List of skills using map: </b></p>
+<div id="map" style="font-size:17px;"> </div>
+<br/>
+
+<p><b> List of skills using foreach: </b></p>
+<div id="foreach" style="font-size:17px;"></div>
+
+<p><b> List of skills using for: </b></p>
+<div id="for" style="font-size:17px;"></div>
+
+<p><b> Display details about skill using filter: </b></p>
+<div id="filter" style="font-size:17px;"></div>
+
+<ul id="foreachList"></ul>
+<ul id="forList" style="list-style-type:square;"></ul>
+
+<script>
+
+        var items;
+
+        var ul1 = document.getElementById("foreachList");
+        document.getElementById("foreach").appendChild(ul1);
+
+        var ul2 = document.getElementById("forList");
+        document.getElementById("for").appendChild(ul2);
+
+        fetch('/skillsList')
+            .then(res => res.json())
+            .then(json => {
+                items = json
+
+                var mapArray = items.map(x =>  x.name );
+                document.getElementById("map").innerHTML = mapArray;
+
+                items.forEach(function(s) {
+                    var li = document.createElement('li')
+                    ul1.appendChild(li)
+                    li.innerHTML += s.name
+                });
+
+                for (let index = 0; index < items.length; index++) {
+                    var obj = items[index];
+                    var li = document.createElement('li')
+                    ul2.appendChild(li)
+                    li.innerHTML += obj.name
+                }
+
+                var result = items.filter(x => x.name === "communication");
+                    document.getElementById("filter").innerHTML = "<strong>Name: </strong>" + result[0].name + ", <strong> Id: </strong>" + result[0].id;
+
+            })
+
+            .catch(function(error) {
+                console.log(error);
+            });
+
+
+</script>
+
+</body>
+</html>
