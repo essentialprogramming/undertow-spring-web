@@ -243,7 +243,7 @@
                                 implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                         <transformer
                                 implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>com.config.ServerSpring</mainClass>
+                            <mainClass>com.server.Server</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>
