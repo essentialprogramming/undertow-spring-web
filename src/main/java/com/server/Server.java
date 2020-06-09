@@ -12,7 +12,7 @@ public class Server {
         final String host = getProperty("undertow.host", "localhost");
         final Integer port = getProperty("undertow.port", 8080);
 
-        final UndertowServer server = new UndertowServer(host, port, "undertow-httpexchange.war");
+        final UndertowServer server = new UndertowServer(host, port, "undertow-spring-web.jar");
 
         final Condition newCondition = server.LOCK.newCondition();
 

@@ -46,23 +46,23 @@
             .then(json => {
                 items = json
 
-                var mapArray = items.map(x =>  x.name );
+                let mapArray = items.map(x =>  x.name );
                 document.getElementById("map").innerHTML = mapArray;
 
                 items.forEach(function(s) {
-                    var li = document.createElement('li')
+                    let li = document.createElement('li')
                     ul1.appendChild(li)
                     li.innerHTML += s.name
                 });
 
                 for (let index = 0; index < items.length; index++) {
-                    var obj = items[index];
-                    var li = document.createElement('li')
+                    let obj = items[index];
+                    let li = document.createElement('li')
                     ul2.appendChild(li)
                     li.innerHTML += obj.name
                 }
 
-                var result = items.filter(x => x.name === "communication");
+                let result = items.filter(x => x.name === "communication");
                     document.getElementById("filter").innerHTML = "<strong>Name: </strong>" + result[0].name + ", <strong> Id: </strong>" + result[0].id;
 
             })

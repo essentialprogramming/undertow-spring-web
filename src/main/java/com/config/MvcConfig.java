@@ -10,8 +10,20 @@ import org.springframework.web.servlet.config.annotation.*;
 public class MvcConfig implements WebMvcConfigurer {
 
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-
         configurer.enable();
+    }
+
+    // Add the WEB-INF view resolver.
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp("WEB-INF/",".jsp");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry
+                .addViewController("/test")
+                .setViewName("test");
     }
 
 }

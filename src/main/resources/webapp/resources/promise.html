@@ -14,10 +14,10 @@
 
 <script>
 
-                  var ul = document.getElementById("list");
+                  let ul = document.getElementById("list");
                   document.getElementById("skillsList").appendChild(ul);
 
-                  var getTextPromise = new Promise((resolve, reject) => {
+                  let getTextPromise = new Promise((resolve, reject) => {
                         const xhr = new XMLHttpRequest();
                               xhr.open('GET', '/skillsList');
                               xhr.onload = (response) => resolve(response.currentTarget.responseText);
@@ -27,10 +27,10 @@
 
                   getTextPromise
                         .then(responseText => {
-                              var items = JSON.parse(responseText);
+                              let items = JSON.parse(responseText);
 
                               items.forEach(function(skill){
-                                 var li = document.createElement('li')
+                                 let li = document.createElement('li')
                                  ul.appendChild(li)
                                  li.innerHTML += skill.name
                               })

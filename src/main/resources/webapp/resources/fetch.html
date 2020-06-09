@@ -14,16 +14,16 @@
 
 <script>
 
-                  var ul = document.getElementById("list");
+                  let ul = document.getElementById("list");
                   document.getElementById("skillsList").appendChild(ul);
 
-                  var items;
+                  let items;
                   fetch('/skillsList')
                          .then(res => res.json())
                          .then(json => {
                                 items = json
                                 items.forEach(function(skill){
-                                    var li = document.createElement('li')
+                                    let li = document.createElement('li')
                                     ul.appendChild(li)
                                     li.innerHTML += skill.name
                             })
