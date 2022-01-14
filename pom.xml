@@ -12,9 +12,10 @@
     <name>UndertowSpringWeb</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <org.springframework.version>5.2.4.RELEASE</org.springframework.version>
-        <org.springframework.security.version>5.3.3.RELEASE</org.springframework.security.version>
-        <com.fasterxml.jackson.version>2.10.1</com.fasterxml.jackson.version>
+        <io.undertow.version>2.2.14.Final</io.undertow.version>
+        <org.springframework.version>5.3.14</org.springframework.version>
+        <org.springframework.security.version>5.3.10.RELEASE</org.springframework.security.version>
+        <com.fasterxml.jackson.version>2.12.1</com.fasterxml.jackson.version>
         <org.slf4j-version>1.7.29</org.slf4j-version>
         <hibernate.version>5.4.9.Final</hibernate.version>
         <hibernate.validator>6.1.0.Final</hibernate.validator>
@@ -119,18 +120,16 @@
         </dependency>
 
         <!-- Undertow -->
-
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
-            <version>2.0.28.Final</version>
+            <version>${io.undertow.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-servlet</artifactId>
-            <version>2.0.28.Final</version>
+            <version>${io.undertow.version}</version>
         </dependency>
 
 
