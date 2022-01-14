@@ -1,7 +1,29 @@
 .idea/
-target/
-testundertow.iml
+*.class
 .classpath
+.settings
 .project
-.settings/
-.iml/
+*.iml
+*.iws
+*.ipr
+.idea
+.DS_Store
+
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+package-lock.json
+
+
+# Ignore everything in this directory
+target/
+logs/
+node/
+node_modules
+
+# Generated files
+bundle.es6.js
+bundle.js
