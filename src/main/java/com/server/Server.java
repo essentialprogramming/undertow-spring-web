@@ -2,8 +2,7 @@ package com.server;
 
 import com.undertow.standalone.UndertowServer;
 import javax.servlet.ServletException;
-import java.util.concurrent.locks.Condition;
-import static com.util.cloud.DeploymentConfiguration.getProperty;
+import static com.util.cloud.Environment.getProperty;
 
 public class Server {
 
@@ -13,16 +12,7 @@ public class Server {
         final Integer port = getProperty("undertow.port", 8080);
 
         final UndertowServer server = new UndertowServer(host, port, "undertow-spring-web.jar");
-
-        final Condition newCondition = server.LOCK.newCondition();
-
         server.start();
-        try {
-            while (true)
-                newCondition.awaitNanos(1);
-        } catch (InterruptedException cause) {
-            server.stop();
-        }
     }
 
 }

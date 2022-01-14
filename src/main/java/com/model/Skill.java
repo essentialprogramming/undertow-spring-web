@@ -4,7 +4,7 @@ public class Skill {
     private String id;
     private String name;
 
-    Skill(String id, String name) {
+    public Skill(String id, String name) {
         this.id = id;
         this.name = name;
     }

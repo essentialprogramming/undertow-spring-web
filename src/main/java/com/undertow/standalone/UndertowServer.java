@@ -29,7 +29,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.config.ApplicationContextFactory.getSpringApplicationContext;
-import static com.util.cloud.DeploymentConfiguration.getProperty;
+import static com.util.cloud.Environment.getProperty;
 import static io.undertow.servlet.Servlets.*;
 
 
@@ -114,6 +114,8 @@ public class UndertowServer {
                 .build();
 
         server.start();
+
+        LOCK.unlock();
     }
 
 

@@ -2,7 +2,7 @@ package com.controller;
 
 
 import com.model.Skill;
-import com.model.SkillsRepository;
+import com.repository.SkillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
