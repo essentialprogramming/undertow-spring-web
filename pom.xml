@@ -12,7 +12,7 @@
     <name>UndertowSpringWeb</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <io.undertow.version>2.2.14.Final</io.undertow.version>
+        <io.undertow.version>2.2.15.Final</io.undertow.version>
         <org.springframework.version>5.3.14</org.springframework.version>
         <org.springframework.security.version>5.3.10.RELEASE</org.springframework.security.version>
         <com.fasterxml.jackson.version>2.12.1</com.fasterxml.jackson.version>
